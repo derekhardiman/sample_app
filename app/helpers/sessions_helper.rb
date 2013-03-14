@@ -19,6 +19,6 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user     # Useless! Don't use this line.
+    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
 end
